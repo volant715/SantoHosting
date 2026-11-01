@@ -1,1 +1,356 @@
 
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SantoPro232 | Portfolio</title>
+<meta name="description" content="Conoce a SantoPro232, desarrollador y apasionado por la ciberseguridad y la tecnología.">
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+    background: #09070e;
+    color: white;
+    font-family: Arial, sans-serif;
+}
+
+nav {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    padding: 20px 8%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: rgba(9,7,14,.88);
+    backdrop-filter: blur(15px);
+    z-index: 10;
+    border-bottom: 1px solid #241832;
+}
+
+.logo {
+    color: #b77aff;
+    font-size: 23px;
+    font-weight: bold;
+}
+
+nav a {
+    color: #ccc;
+    text-decoration: none;
+    margin-left: 22px;
+    font-size: 14px;
+}
+
+nav a:hover { color: #b77aff; }
+
+.hero {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 120px 20px 70px;
+    background:
+    radial-gradient(ellipse at center, #291440 0%, #09070e 65%);
+}
+
+.hero-content { max-width: 800px; }
+
+.status {
+    display: inline-block;
+    padding: 9px 17px;
+    border: 1px solid #65418b;
+    color: #c99aff;
+    border-radius: 30px;
+    margin-bottom: 25px;
+    font-size: 13px;
+}
+
+h1 {
+    font-size: clamp(42px, 8vw, 76px);
+    margin-bottom: 20px;
+}
+
+h1 span { color: #b77aff; }
+
+.hero p {
+    color: #aaa;
+    line-height: 1.8;
+    font-size: 17px;
+    margin-bottom: 30px;
+}
+
+.button {
+    display: inline-block;
+    padding: 14px 25px;
+    border-radius: 10px;
+    text-decoration: none;
+    font-weight: bold;
+    margin: 6px;
+    transition: .3s;
+}
+
+.primary {
+    background: #914bdb;
+    color: white;
+}
+
+.primary:hover {
+    background: #aa70ed;
+    transform: translateY(-4px);
+}
+
+.secondary {
+    border: 1px solid #70459c;
+    color: white;
+}
+
+.secondary:hover { background: #251437; }
+
+section {
+    padding: 100px 9%;
+}
+
+.section-title {
+    font-size: 35px;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.section-title span { color: #b77aff; }
+
+.subtitle {
+    color: #999;
+    text-align: center;
+    margin-bottom: 45px;
+}
+
+.about {
+    max-width: 850px;
+    margin: auto;
+    text-align: center;
+    color: #aaa;
+    line-height: 2;
+    font-size: 17px;
+}
+
+.cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 20px;
+}
+
+.card {
+    background: #130e1c;
+    border: 1px solid #30203f;
+    padding: 30px;
+    border-radius: 16px;
+    transition: .3s;
+}
+
+.card:hover {
+    transform: translateY(-7px);
+    border-color: #a45ce5;
+}
+
+.card .emoji {
+    font-size: 35px;
+    margin-bottom: 18px;
+}
+
+.card h3 {
+    margin-bottom: 12px;
+    color: #c99aff;
+}
+
+.card p {
+    color: #999;
+    line-height: 1.7;
+}
+
+.contact {
+    text-align: center;
+    background: radial-gradient(ellipse, #211031, #09070e 75%);
+}
+
+.discord-box {
+    max-width: 550px;
+    margin: auto;
+    background: #151020;
+    border: 1px solid #49305e;
+    border-radius: 18px;
+    padding: 35px;
+}
+
+.discord-box h3 {
+    font-size: 25px;
+    margin-bottom: 15px;
+}
+
+.discord-box p {
+    color: #aaa;
+    margin-bottom: 20px;
+}
+
+.username {
+    background: #09070e;
+    border: 1px solid #49305e;
+    padding: 15px;
+    border-radius: 9px;
+    color: #c99aff;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+footer {
+    padding: 30px;
+    text-align: center;
+    color: #777;
+    border-top: 1px solid #241832;
+}
+
+@media(max-width:600px) {
+    nav { padding: 18px 5%; }
+    nav a { margin-left: 9px; font-size: 12px; }
+    .logo { font-size: 18px; }
+    section { padding: 75px 6%; }
+}
+</style>
+</head>
+
+<body>
+
+<nav>
+    <div class="logo">SANTO<span>PRO232</span></div>
+    <div>
+        <a href="#inicio">Inicio</a>
+        <a href="#sobre-mi">Sobre mí</a>
+        <a href="#intereses">Intereses</a>
+        <a href="#contacto">Contacto</a>
+    </div>
+</nav>
+
+<header class="hero" id="inicio">
+    <div class="hero-content">
+        <div class="status">✦ Developer & Technology Enthusiast</div>
+
+        <h1>Hola, soy <span>SantoPro232</span></h1>
+
+        <p>
+            Apasionado por la tecnología, la programación y la ciberseguridad.
+            Me encanta crear proyectos, experimentar y aprender algo nuevo
+            cada día.
+        </p>
+
+        <a href="#sobre-mi" class="button primary">Conóceme</a>
+        <a href="#contacto" class="button secondary">Mi Discord</a>
+    </div>
+</header>
+
+<section id="sobre-mi">
+    <h2 class="section-title">Sobre <span>mí</span></h2>
+    <p class="about">
+        ¡Buenas! Soy SantoPro232. Me gusta el mundo de la informática,
+        desarrollar aplicaciones, experimentar con Python y JavaScript
+        y aprender sobre ciberseguridad de forma ética.
+        <br><br>
+        Siempre estoy buscando nuevas ideas y proyectos para desarrollar.
+        Mi objetivo es seguir creciendo en el mundo tecnológico y compartir
+        lo que voy aprendiendo.
+    </p>
+</section>
+
+<section id="intereses">
+    <h2 class="section-title">Mis <span>intereses</span></h2>
+    <p class="subtitle">Algunas de las cosas que me gustan.</p>
+
+    <div class="cards">
+        <div class="card">
+            <div class="emoji">🔐</div>
+            <h3>Ciberseguridad</h3>
+            <p>Seguridad informática, redes, pentesting ético y aprendizaje en laboratorios.</p>
+        </div>
+
+        <div class="card">
+            <div class="emoji">💻</div>
+            <h3>Programación</h3>
+            <p>Desarrollo con Python, JavaScript, HTML, CSS y creación de aplicaciones.</p>
+        </div>
+
+        <div class="card">
+            <div class="emoji">🌐</div>
+            <h3>Desarrollo Web</h3>
+            <p>Diseño de páginas web, interfaces modernas y proyectos personales.</p>
+        </div>
+
+        <div class="card">
+            <div class="emoji">🎮</div>
+            <h3>Gaming</h3>
+            <p>Minecraft, comunidades, servidores y proyectos relacionados con videojuegos.</p>
+        </div>
+
+        <div class="card">
+            <div class="emoji">🚀</div>
+            <h3>Proyectos</h3>
+            <p>Siempre creando nuevas ideas, experimentando y construyendo cosas.</p>
+        </div>
+
+        <div class="card">
+            <div class="emoji">🧠</div>
+            <h3>Aprendizaje</h3>
+            <p>Explorando nuevas tecnologías y mejorando mis conocimientos cada día.</p>
+        </div>
+    </div>
+</section>
+
+<section class="contact" id="contacto">
+    <h2 class="section-title">¡Hablemos por <span>Discord!</span></h2>
+    <p class="subtitle">¿Quieres conocerme o hablar sobre tecnología?</p>
+
+    <div class="discord-box">
+        <h3>💜 Mi Discord</h3>
+        <p>Puedes buscarme directamente en Discord.</p>
+
+        <div class="username" id="discordUser">
+            santiniinsaniti
+        </div>
+
+        <button class="button primary" onclick="copyDiscord()">
+            Copiar usuario
+        </button>
+
+        <p id="message" style="margin-top:15px;font-size:13px;"></p>
+    </div>
+</section>
+
+<footer>
+    © 2026 SantoPro232. Todos los derechos reservados.
+    <br><br>
+    Hecho con 💜 y código.
+</footer>
+
+<script>
+function copyDiscord() {
+    const user = document.getElementById("discordUser").innerText;
+
+    navigator.clipboard.writeText(user).then(() => {
+        document.getElementById("message").innerText =
+            "¡Usuario copiado! Búscame en Discord.";
+    }).catch(() => {
+        document.getElementById("message").innerText =
+            "No se pudo copiar. Selecciona el usuario manualmente.";
+    });
+}
+</script>
+
+</body>
+</html>
+
