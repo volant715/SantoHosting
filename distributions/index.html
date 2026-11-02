@@ -1,1 +1,705 @@
+```html
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#080d19">
+<meta name="description" content="SantoDistributions desarrolla sistemas operativos y entornos digitales para productividad, informática, ciberseguridad y trabajo.">
+<title>SantoDistributions | Sistemas para todos</title>
 
+<style>
+:root {
+  --bg:#080d19;
+  --panel:#101a2b;
+  --panel2:#142139;
+  --blue:#3988ff;
+  --cyan:#62d6ff;
+  --text:#f3f7ff;
+  --muted:#9baac1;
+  --border:rgba(255,255,255,.09);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+  background:var(--bg);color:var(--text);
+  font-family:Inter,Segoe UI,Arial,sans-serif;
+  line-height:1.6;
+}
+a{color:inherit;text-decoration:none}
+header{
+  position:sticky;top:0;z-index:10;
+  background:rgba(8,13,25,.9);
+  backdrop-filter:blur(18px);
+  border-bottom:1px solid var(--border);
+}
+.nav{
+  max-width:1150px;margin:auto;padding:17px 22px;
+  display:flex;align-items:center;justify-content:space-between;
+}
+.logo{font-size:20px;font-weight:850;letter-spacing:-1px}
+.logo span{color:var(--blue)}
+nav{display:flex;gap:20px;font-size:13px;color:var(--muted)}
+nav a:hover{color:white}
+.hero{
+  max-width:1150px;margin:auto;padding:100px 22px 85px;
+  display:grid;grid-template-columns:1.15fr .85fr;
+  gap:55px;align-items:center;
+}
+.tag{
+  display:inline-block;padding:7px 13px;border-radius:30px;
+  background:#142b4b;color:#78baff;font-size:12px;
+  border:1px solid #244a78;margin-bottom:20px;
+}
+h1{font-size:clamp(42px,6vw,70px);line-height:1.06;letter-spacing:-3px}
+h1 span{
+  background:linear-gradient(90deg,#3988ff,#72d8ff);
+  -webkit-background-clip:text;color:transparent;
+}
+.hero p{color:var(--muted);margin:23px 0;font-size:16px;max-width:590px}
+.buttons{display:flex;gap:12px;flex-wrap:wrap}
+.btn{
+  padding:12px 20px;border-radius:10px;
+  background:var(--blue);font-weight:750;font-size:14px;
+  display:inline-block;transition:.2s;border:1px solid transparent;
+}
+.btn:hover{transform:translateY(-3px);filter:brightness(1.15)}
+.btn.secondary{background:transparent;border-color:var(--border)}
+.preview{
+  background:linear-gradient(145deg,#142b4b,#0c1423);
+  border:1px solid #29466c;border-radius:22px;padding:20px;
+  box-shadow:0 25px 90px #0008;
+}
+.screen{
+  min-height:270px;border-radius:14px;padding:17px;
+  background:linear-gradient(140deg,#102c50,#07101e);
+  position:relative;overflow:hidden;
+}
+.screen:before{
+  content:"";position:absolute;width:250px;height:250px;
+  border-radius:50%;background:#348dff55;filter:blur(55px);
+  right:-40px;top:10px;
+}
+.screen-top{display:flex;justify-content:space-between;font-size:11px;color:#b9d7ff}
+.screen-title{position:relative;margin-top:65px;font-size:35px;font-weight:850}
+.screen-sub{position:relative;color:#a8c6eb;font-size:12px}
+.screen-dock{
+  position:absolute;bottom:15px;left:15px;right:15px;
+  display:flex;gap:9px;justify-content:center
+}
+.screen-dock span{
+  width:34px;height:34px;border-radius:9px;background:#ffffff20;
+  display:grid;place-items:center;font-size:17px
+}
+section{padding:75px 22px}
+.container{max-width:1100px;margin:auto}
+.section-head{margin-bottom:35px}
+.eyebrow{color:#66aaff;font-size:12px;font-weight:800;letter-spacing:2px}
+h2{font-size:34px;letter-spacing:-1px;margin:7px 0}
+.section-head p{color:var(--muted);max-width:680px}
+.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:17px}
+.card{
+  background:var(--panel);border:1px solid var(--border);
+  border-radius:16px;padding:24px;transition:.2s;
+}
+.card:hover{transform:translateY(-4px);border-color:#3988ff88}
+.icon{font-size:27px;margin-bottom:13px}
+.card h3{font-size:18px;margin-bottom:8px}
+.card p{font-size:13px;color:var(--muted)}
+.status{
+  display:inline-block;margin-top:17px;padding:5px 10px;
+  background:#182d45;color:#82bdff;border-radius:20px;font-size:11px
+}
+.status.green{background:#14382c;color:#6ee7b7}
+.status.gray{background:#252d3b;color:#bac4d3}
+.dark-section{background:#0c1423;border-block:1px solid var(--border)}
+.product{
+  display:grid;grid-template-columns:1fr 1fr;gap:30px;align-items:center
+}
+.product-box{
+  background:linear-gradient(145deg,#142d4e,#0c1525);
+  border:1px solid #2a4b72;border-radius:20px;padding:32px;
+}
+.product-box h3{font-size:30px}
+.product-box p{color:var(--muted);font-size:14px;margin-top:10px}
+.timeline{display:grid;gap:12px}
+.update{
+  display:flex;gap:17px;padding:17px;
+  background:var(--panel);border:1px solid var(--border);
+  border-radius:12px;align-items:flex-start;
+}
+.update-number{
+  min-width:38px;height:38px;border-radius:10px;
+  background:#18365d;display:grid;place-items:center;
+  color:#8bc2ff;font-weight:800
+}
+.update p{color:var(--muted);font-size:13px}
+.requirements{
+  display:grid;grid-template-columns:repeat(3,1fr);gap:15px;margin-top:25px
+}
+.requirement{
+  background:var(--panel);padding:22px;border-radius:14px;
+  border:1px solid var(--border)
+}
+.requirement strong{display:block;font-size:23px;color:#83bdff}
+.requirement span{font-size:12px;color:var(--muted)}
+.notice{
+  border-left:3px solid #e5ad48;background:#292316;
+  padding:16px;border-radius:7px;color:#e8d6ad;
+  font-size:13px;margin-top:20px
+}
+footer{
+  padding:35px 22px;border-top:1px solid var(--border);
+  color:var(--muted);font-size:12px
+}
+.footer-inner{
+  max-width:1100px;margin:auto;display:flex;
+  justify-content:space-between;gap:20px;flex-wrap:wrap
+}
+@media(max-width:850px){
+  .hero,.product{grid-template-columns:1fr;padding-top:65px}
+  .cards,.requirements{grid-template-columns:repeat(2,1fr)}
+  nav{gap:10px;font-size:11px}
+}
+@media(max-width:600px){
+  .cards,.requirements{grid-template-columns:1fr}
+  nav{display:none}
+  h1{letter-spacing:-2px}
+  h2{font-size:28px}
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <div class="nav">
+    <a class="logo" href="#inicio">SANTO<span>DISTRIBUTIONS</span></a>
+    <nav>
+      <a href="#inicio">Inicio</a>
+      <a href="#sistemas">Sistemas</a>
+      <a href="#versiones">Versiones</a>
+      <a href="#compatibilidad">Compatibilidad</a>
+      <a href="#soporte">Soporte</a>
+      <a href="#nosotros">Nosotros</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+
+<!-- INICIO -->
+<section class="hero" id="inicio">
+  <div>
+    <div class="tag">✦ DESARROLLANDO EL FUTURO</div>
+    <h1>Sistemas creados para <span>todos.</span></h1>
+    <p>
+      En SantoDistributions desarrollamos sistemas y entornos digitales
+      pensados para diferentes necesidades: informática, ciberseguridad,
+      productividad, trabajo, educación y mucho más.
+    </p>
+    <div class="buttons">
+      <a href="#sistemas" class="btn">Explorar sistemas</a>
+      <a href="#versiones" class="btn secondary">Ver desarrollo</a>
+    </div>
+  </div>
+
+  <div class="preview">
+    <div class="screen">
+      <div class="screen-top">
+        <span>SantoOS Desktop</span>
+        <span>● ● ●</span>
+      </div>
+      <div class="screen-title">SantoOS</div>
+      <div class="screen-sub">Un entorno. Muchas posibilidades.</div>
+      <div class="screen-dock">
+        <span>📁</span><span>🌐</span><span>💬</span>
+        <span>⚙️</span><span>⌨️</span>
+      </div>
+    </div>
+    <p style="font-size:12px;margin-top:13px">
+      Vista conceptual de SantoOS.
+    </p>
+  </div>
+</section>
+
+<!-- SISTEMAS -->
+<section id="sistemas" class="dark-section">
+  <div class="container">
+    <div class="section-head">
+      <div class="eyebrow">NUESTRA FAMILIA DE SISTEMAS</div>
+      <h2>Distribuciones para diferentes necesidades</h2>
+      <p>
+        No todos utilizan sus equipos de la misma manera.
+        Por eso queremos crear sistemas especializados para distintos públicos.
+      </p>
+    </div>
+
+    <div class="cards">
+      <article class="card">
+        <div class="icon">💻</div>
+        <h3>SantoOS</h3>
+        <p>
+          Nuestro primer entorno de escritorio, enfocado en productividad,
+          aplicaciones y una experiencia sencilla para el usuario.
+        </p>
+        <span class="status">Beta en desarrollo</span>
+      </article>
+
+      <article class="card">
+        <div class="icon">🖥️</div>
+        <h3>SantoDesktop</h3>
+        <p>
+          Un futuro proyecto de escritorio con nuevas funciones,
+          posibilidades y una experiencia diferente.
+        </p>
+        <span class="status gray">Planeación futura</span>
+      </article>
+
+      <article class="card">
+        <div class="icon">🔐</div>
+        <h3>Distribuciones de ciberseguridad</h3>
+        <p>
+          Sistemas especializados para aprendizaje de seguridad informática,
+          análisis, auditorías autorizadas y administración de entornos tecnológicos.
+        </p>
+        <span class="status gray">Futuro desarrollo</span>
+      </article>
+
+      <article class="card">
+        <div class="icon">📊</div>
+        <h3>Sistemas de trabajo</h3>
+        <p>
+          Entornos pensados para oficinas, organización, productividad
+          y actividades profesionales.
+        </p>
+        <span class="status gray">Por anunciar</span>
+      </article>
+
+      <article class="card">
+        <div class="icon">🎓</div>
+        <h3>Sistemas educativos</h3>
+        <p>
+          Herramientas y entornos que faciliten el aprendizaje,
+          la programación y el uso de tecnología.
+        </p>
+        <span class="status gray">Por anunciar</span>
+      </article>
+
+      <article class="card">
+        <div class="icon">🛠️</div>
+        <h3>Otros proyectos</h3>
+        <p>
+          Seguiremos explorando nuevas ideas y desarrollando
+          sistemas para diferentes comunidades.
+        </p>
+        <span class="status gray">Futuro desarrollo</span>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- CIBERSEGURIDAD -->
+<section id="ciberseguridad">
+  <div class="container">
+    <div class="product">
+      <div>
+        <div class="eyebrow">TECNOLOGÍA Y SEGURIDAD</div>
+        <h2>Distribuciones centradas en ciberseguridad</h2>
+        <p style="color:var(--muted);margin-top:15px">
+          SantoDistributions también planea desarrollar sistemas
+          especializados en informática y ciberseguridad.
+        </p>
+        <p style="color:var(--muted);margin-top:12px">
+          Estos proyectos estarán orientados al aprendizaje,
+          la investigación, la protección de sistemas, las auditorías
+          autorizadas y el uso responsable de herramientas de seguridad.
+        </p>
+      </div>
+      <div class="product-box">
+        <div class="eyebrow">NUEVA LÍNEA DE DESARROLLO</div>
+        <h3>SantoCyber y futuros sistemas</h3>
+        <p>
+          Nuestro objetivo será ofrecer entornos organizados,
+          documentación y herramientas para aprender y trabajar
+          en seguridad informática de forma responsable.
+        </p>
+        <p style="color:#83bdff;font-weight:750;margin-top:20px">
+          Aprender · Analizar · Proteger
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- VERSIONES -->
+<section id="versiones" class="dark-section">
+  <div class="container">
+    <div class="section-head">
+      <div class="eyebrow">HOJA DE RUTA</div>
+      <h2>El camino de SantoOS</h2>
+      <p>
+        La primera versión está en construcción. Este es el plan previsto
+        para después de completar y probar la beta.
+      </p>
+    </div>
+
+    <div class="timeline">
+      <div class="update">
+        <div class="update-number">β</div>
+        <div>
+          <h3>SantoOS Beta</h3>
+          <p>Desarrollo, pruebas, corrección de errores y preparación del lanzamiento.</p>
+          <span class="status">En desarrollo</span>
+        </div>
+      </div>
+
+      <div class="update">
+        <div class="update-number">1.0</div>
+        <div>
+          <h3>SantoOS 1.0</h3>
+          <p>Primera versión pública prevista después de finalizar y validar la beta.</p>
+          <span class="status gray">Pendiente</span>
+        </div>
+      </div>
+
+      <div class="update">
+        <div class="update-number">01</div>
+        <div><h3>SantoOS Update 1</h3><p>Primera actualización posterior al lanzamiento.</p></div>
+      </div>
+
+      <div class="update">
+        <div class="update-number">02</div>
+        <div><h3>SantoOS Update 2</h3><p>Mejoras y nuevas funciones.</p></div>
+      </div>
+
+      <div class="update">
+        <div class="update-number">03</div>
+        <div><h3>SantoOS Update 3</h3><p>Ampliación de aplicaciones y compatibilidad.</p></div>
+      </div>
+
+      <div class="update">
+        <div class="update-number">04</div>
+        <div><h3>SantoOS Update 4</h3><p>Mejoras de experiencia y rendimiento.</p></div>
+      </div>
+
+      <div class="update">
+        <div class="update-number">05</div>
+        <div><h3>SantoOS Update 5</h3><p>Quinta actualización prevista de esta etapa.</p></div>
+      </div>
+
+      <div class="update">
+        <div class="update-number">→</div>
+        <div>
+          <h3>SantoDesktop</h3>
+          <p>El siguiente proyecto de la familia SantoDistributions.</p>
+          <span class="status gray">Proyecto futuro</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="notice">
+      Esta hoja de ruta es una planificación. Las características,
+      fechas y versiones pueden cambiar durante el desarrollo.
+    </div>
+  </div>
+</section>
+
+<!-- COMPATIBILIDAD -->
+<section id="compatibilidad">
+  <div class="container">
+    <div class="section-head">
+      <div class="eyebrow">COMPATIBILIDAD</div>
+      <h2>Requisitos previstos de SantoOS</h2>
+      <p>
+        Los siguientes requisitos son estimaciones para la futura versión
+        pública después de completar la beta.
+      </p>
+    </div>
+
+    <h3>Windows — mínimos previstos</h3>
+    <div class="requirements">
+      <div class="requirement">
+        <strong>Intel Core 2</strong>
+        <span>Procesador mínimo previsto</span>
+      </div>
+      <div class="requirement">
+        <strong>4 GB RAM</strong>
+        <span>Memoria mínima prevista</span>
+      </div>
+      <div class="requirement">
+        <strong>15 GB</strong>
+        <span>Almacenamiento disponible</span>
+      </div>
+    </div>
+
+    <h3 style="margin-top:35px">Otros sistemas</h3>
+    <div class="cards" style="margin-top:15px">
+      <div class="card">
+        <div class="icon">🍎</div>
+        <h3>macOS</h3>
+        <p>
+          Se planea publicar una versión para macOS al mismo tiempo
+          que la versión de Windows. Inicialmente se utilizará
+          principalmente para pruebas y trabajo interno de nuestros desarrolladores.
+        </p>
+        <span class="status">Compatibilidad prevista</span>
+      </div>
+
+      <div class="card">
+        <div class="icon">🐧</div>
+        <h3>Linux</h3>
+        <p>
+          Se estudia lanzar versiones específicas para Kali Linux,
+          Fedora y Arch Linux. La compatibilidad y el ritmo de soporte
+          dependerán de las pruebas realizadas.
+        </p>
+        <span class="status gray">En proceso</span>
+      </div>
+
+      <div class="card">
+        <div class="icon">🪟</div>
+        <h3>Windows</h3>
+        <p>
+          Se planea ofrecer ejecución mediante Python y una versión
+          ejecutable EXE para facilitar su uso.
+        </p>
+        <span class="status">Compatibilidad prevista</span>
+      </div>
+    </div>
+
+    <div class="notice">
+      IMPORTANTE: los requisitos pueden aumentar. La compatibilidad con
+      diferentes modelos de Mac todavía debe probarse. Los datos publicados
+      son objetivos previstos, no requisitos finales certificados.
+    </div>
+
+    <div class="notice">
+      SantoOS se desarrolla como un entorno de escritorio basado en Python.
+      No debe confundirse con una distribución Linux arrancable.
+    </div>
+  </div>
+</section>
+
+<!-- LINUX -->
+<section id="linux" class="dark-section">
+  <div class="container">
+    <div class="section-head">
+      <div class="eyebrow">DESARROLLO PARA LINUX</div>
+      <h2>Versiones específicas para Linux</h2>
+      <p>
+        Linux presenta diferencias entre distribuciones, gestores de paquetes,
+        versiones de bibliotecas y dependencias. Por eso estamos considerando
+        versiones específicas en lugar de prometer compatibilidad universal.
+      </p>
+    </div>
+
+    <div class="cards">
+      <article class="card">
+        <div class="icon">🐉</div>
+        <h3>Kali Linux</h3>
+        <p>Una de las distribuciones que probablemente tendrá versiones compatibles.</p>
+        <span class="status">Muy probable</span>
+      </article>
+
+      <article class="card">
+        <div class="icon">🖥️</div>
+        <h3>Fedora</h3>
+        <p>Se contempla adaptar los sistemas al entorno y las dependencias de Fedora.</p>
+        <span class="status">Muy probable</span>
+      </article>
+
+      <article class="card">
+        <div class="icon">⚙️</div>
+        <h3>Arch Linux</h3>
+        <p>También se contempla su compatibilidad, aunque su soporte podría desarrollarse más lentamente.</p>
+        <span class="status">En evaluación</span>
+      </article>
+    </div>
+
+    <div class="notice">
+      El soporte Linux podría avanzar más lentamente debido a las pruebas
+      adicionales necesarias para cada distribución y sus dependencias.
+    </div>
+  </div>
+</section>
+
+<!-- DEPENDENCIAS -->
+<section id="dependencias">
+  <div class="container">
+    <div class="section-head">
+      <div class="eyebrow">REPOSITORIOS Y DESARROLLO</div>
+      <h2>Dependencias oficiales en GitHub</h2>
+      <p>
+        Los repositorios oficiales de SantoDistributions incluirán
+        documentación técnica para instalar, configurar y ejecutar
+        nuestros proyectos.
+      </p>
+    </div>
+
+    <div class="cards">
+      <article class="card">
+        <div class="icon">🐍</div>
+        <h3>Python</h3>
+        <p>
+          Se publicarán las dependencias de Python utilizadas por cada
+          proyecto, junto con sus versiones recomendadas.
+        </p>
+      </article>
+
+      <article class="card">
+        <div class="icon">📚</div>
+        <h3>Documentación</h3>
+        <p>
+          Cada repositorio podrá incluir instrucciones de instalación,
+          configuración, ejecución y solución de problemas.
+        </p>
+      </article>
+
+      <article class="card">
+        <div class="icon">🔧</div>
+        <h3>Compatibilidad</h3>
+        <p>
+          Se indicarán las dependencias adicionales del sistema
+          necesarias para cada plataforma compatible.
+        </p>
+      </article>
+    </div>
+
+    <div class="notice">
+      Las dependencias de Python no siempre son suficientes por sí solas:
+      algunas aplicaciones también requieren bibliotecas o componentes
+      propios de Windows, macOS o Linux. Se documentarán por separado.
+    </div>
+  </div>
+</section>
+
+<!-- SOPORTE -->
+<section id="soporte" class="dark-section">
+  <div class="container">
+    <div class="section-head">
+      <div class="eyebrow">CICLO DE VIDA Y SOPORTE</div>
+      <h2>El ciclo de cada distribución</h2>
+      <p>
+        Cada distribución tendrá un ciclo de desarrollo, actualizaciones
+        y soporte definido para mantener organizada su evolución.
+      </p>
+    </div>
+
+    <div class="cards">
+      <article class="card">
+        <div class="icon">🚀</div>
+        <h3>1. Lanzamiento</h3>
+        <p>
+          Se publica la primera versión oficial después de completar
+          la beta y realizar las pruebas correspondientes.
+        </p>
+      </article>
+
+      <article class="card">
+        <div class="icon">🔄</div>
+        <h3>2. Cinco actualizaciones</h3>
+        <p>
+          Cada distribución tendrá cinco actualizaciones principales
+          posteriores a su lanzamiento, según su planificación.
+        </p>
+      </article>
+
+      <article class="card">
+        <div class="icon">🛡️</div>
+        <h3>3. Última semana de soporte</h3>
+        <p>
+          Después de completar las cinco actualizaciones, se ofrecerá
+          una semana adicional de soporte oficial.
+        </p>
+      </article>
+
+      <article class="card">
+        <div class="icon">📦</div>
+        <h3>4. Fin de soporte</h3>
+        <p>
+          Una vez terminada esa semana, la distribución pasará a estado
+          sin soporte oficial. Podrá seguir utilizándose, pero ya no
+          recibirá asistencia ni actualizaciones oficiales.
+        </p>
+      </article>
+    </div>
+
+    <div class="notice">
+      Este ciclo se aplicará individualmente a cada distribución.
+      Las fechas concretas se anunciarán con cada lanzamiento.
+      El fin del soporte significa que no se garantiza la corrección
+      de errores ni la recepción de actualizaciones de seguridad.
+    </div>
+  </div>
+</section>
+
+<!-- NOSOTROS -->
+<section id="nosotros">
+  <div class="container">
+    <div class="product">
+      <div>
+        <div class="eyebrow">SOBRE NOSOTROS</div>
+        <h2>La tecnología debe adaptarse a las personas.</h2>
+        <p style="color:var(--muted);margin-top:15px">
+          SantoDistributions nace con el objetivo de crear sistemas
+          tecnológicos accesibles, útiles y adaptados a diferentes necesidades.
+        </p>
+        <p style="color:var(--muted);margin-top:12px">
+          Queremos desarrollar herramientas para personas interesadas
+          en informática, usuarios que necesitan trabajar, estudiantes,
+          desarrolladores y comunidades.
+        </p>
+        <p style="color:var(--muted);margin-top:12px">
+          Nuestra visión es construir una familia de distribuciones
+          que evolucione con sus usuarios y ofrezca nuevas posibilidades.
+        </p>
+      </div>
+
+      <div class="product-box">
+        <div class="eyebrow">NUESTRA VISIÓN</div>
+        <h3>Más que un sistema.</h3>
+        <p>
+          Una familia de proyectos que aprende de sus usuarios,
+          crece con sus comunidades y busca ofrecer nuevas experiencias
+          tecnológicas.
+        </p>
+        <p style="color:#83bdff;font-weight:750;margin-top:20px">
+          SantoDistributions · Creando para el futuro.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- DESCARGAS -->
+<section class="dark-section" id="descargas">
+  <div class="container" style="text-align:center">
+    <div class="eyebrow">CENTRO DE DESCARGAS</div>
+    <h2>Las descargas llegarán después de las pruebas.</h2>
+    <p style="color:var(--muted);max-width:650px;margin:12px auto 22px">
+      SantoOS todavía está en desarrollo. Cuando la beta esté terminada
+      y validada, publicaremos aquí las versiones oficiales, los requisitos
+      y sus notas de lanzamiento.
+    </p>
+    <span class="status">Descargas todavía no disponibles</span>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="footer-inner">
+    <div>
+      <strong style="color:white">SantoDistributions</strong><br>
+      Sistemas creados para las personas.
+    </div>
+    <div>
+      © 2026 SantoDistributions. Proyecto en desarrollo.
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
+```
